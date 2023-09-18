@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
 </head>
+
 <body>
-    <h1>teste </h1>
+
+    {% set menssagem = get_flashed_messages() %}
+    {% if menssagem %}
+    <div class="flash_alerta">
+        {{menssagem[0]}}
+    </div>
+    {% endif %}
+    <h1>ADMINISTRAÇÃO DO GRUPO</h1>
+
+
+    <h1>USUARIOS CADASTRADOS</h1>
+
+
+    <input type="text" placeholder="Pesquisa" id="user_search" />
+
+
+
+        {% if users %}
+            {% for usuario in users %}
+                <ul>
+                    <li>{{usuario['user']}}</li>
+                    <li>{{usuario['password']}}</li>
+                </ul>
+            {% endfor %}
+        {% else %}
+
+        <h1>nao existe usuarios cadastrados</h1>
+        {% endif %}
+  
+
+
+    <script>
+      let input = document.getElementById("user_search");
+      let button = document.getElementById("button");
+      let names = document.getElementsByTagName("li");
+
+      input.addEventListener("input", () => {
+        for (let name of names) {
+          if (name.innerText.includes(input.value)) {
+            name.style.display = "list-item";
+          } else {
+            name.style.display = "none";
+          }
+        }
+      });
+    </script>
+
+  
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>

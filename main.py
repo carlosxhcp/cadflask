@@ -6,6 +6,7 @@ import email.message
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='C1983RLOS'
+logado=False
 
 # Função de enviar email #
 def enviar_email(): 
@@ -26,12 +27,11 @@ def enviar_email():
     # Login Credentials for sending the mail
     s.login(msg['From'], password)
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
-logged=False
 
 @app.route('/')
 def index():
-    global logged
-    logged = False
+    global logado
+    logado = False
     return render_template('index.html')
 
 
@@ -39,7 +39,7 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
     
-    global logged
+    global logado
 
     user = request.form.get('user')
     password = request.form.get('password')
@@ -50,11 +50,11 @@ def login():
         for usuario in users:
             cont+=1
             if usuario['user'] == user and usuario['password'] == password:
-                return render_template('users.html')
+                logado=True
+                return redirect('/users')
             if cont >= len(users):
                 flash('Usuário ou/e senha inválidos!')
                 return redirect("/")
-
 # Rota utilizada para novo cadastro #
 @app.route('/novo_cadastro', methods=['POST'])
 def novo_cadastro():
@@ -91,9 +91,11 @@ def cadastrar():
     return render_template('cadastro.html')
 
 
-#@cad.route('/admin')
-#def admin():
-
+@app.route('/users')
+def adm():
+    with open('users.json') as userstemp:
+        users = json.load(userstemp)
+    return render_template('users.html', users=users)
 
 
 
