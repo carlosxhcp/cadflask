@@ -29,42 +29,42 @@
 
 <body>
 
-    <!--   Mensagem de erro se usuario/senha estiverem errados      -->
+    <!--   Mensagem de erro se usuario/senha estiverem errados      
     {% set menssagem = get_flashed_messages() %}
     {% if menssagem %}
     <div class="flash_alerta">
         {{menssagem[0]}}
     </div>
-    {% endif %}
+    {% endif %}-->
+
+    <div class="container">
+        <div class="fundo_form">
+            <h2 class="titulo">Cadastro de usuário</h2>
+            <form action="/novo_cadastro" id="login" method="post">
+                <input type="text" name="user" id="user" required placeholder="Digite seu nome usuário">
+
+                <br><br>
+
+                <input type="user_email" name="user_email" id="email" required placeholder="Seu e-mail mais utilizado">
+
+                <br><br>
+
+                <input type="tel" id="tel" maxlength="15" onkeyup="handlePhone(event)" required
+                    placeholder="Celular">
+
+                <br><br>
+
+                <input type="password" name="password" id="password" required placeholder="Digite a sua senha">
+
+                <br><br>
+
+                <button type="submit" class="cad_btn"">Cadastrar</button>
 
 
 
-    <form action="/novo_cadastro" id="login" method="post">
-        <label for="user">Usuário</label>
-        <input type="text" name="user" id="user" required placeholder="Digite seu usuário">
-
-        <br><br>
-
-        <label for="user_email">E-mail</label>
-        <input type="user_email" name="user_email" id="email" required placeholder="Seu e-mail mais utilizado">
-
-        <br><br>
-
-        <label for="tel">Celular</label>
-        <input type="tel" id="tel" maxlength="15" onkeyup="handlePhone(event)" required placeholder="(00)12345-6789">
-
-        <br><br>
-
-        <label for="password" id="password">Senha</label>
-        <input type="password" name="password" id="password" required placeholder="Digite a sua senha">
-
-        <br><br>
-        
-        <button type="submit" id="btn_login">Cadastrar</button>
-
-
-
-    </form>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

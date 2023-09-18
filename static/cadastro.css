@@ -19,7 +19,7 @@ input {
     border-style: solid;
 }
 
-button {
+.cad_btn {
     margin: 20px auto 0;
     width: 200px;
     height: 40px;
@@ -32,7 +32,7 @@ button {
     transition: 0.5s;
 }
 
-button:hover{
+.cad_btn:hover{
     background-color: #007EA7;
     transition: 0.5s;
     cursor: pointer;
@@ -48,30 +48,29 @@ button:hover{
 .fundo_form {
     background-color: #fff ;
     width: 280px;
-    position: absolute;
-    top: 20%;
-    left: 35%;
     padding: 50px 30px 70px;
-    box-shadow: 1px 4px 10px 1px #aaa;
+    box-shadow: 1px 4px 10px 1px #000;
+    margin-top: 2%;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+}
+
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
-.novocad {
-    margin-left: 30px;
-    margin-top: 70px;
-    font-size: 17px;
+
+.flash_alert {
     font-family: sans-serif;
-    transition:all 0.3s ease;
-
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    color: red;
+    font-weight: bold;
     
-}
-
-.novocad:hover{
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-        transition:all 0.3s ease;
 }

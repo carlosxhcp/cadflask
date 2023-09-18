@@ -1,5 +1,17 @@
 [
     {
+        "user": "Carlos",
+        "user_email": "carlosxhcp@gmail.com",
+        "tel": null,
+        "password": "123"
+    },
+    {
+        "user": "asdasd",
+        "user_email": "asdasd@gmail.com",
+        "tel": null,
+        "password": "234"
+    },
+    {
         "user": "carlos",
         "user_email": "carlosxhcp@gmail.com",
         "tel": null,
