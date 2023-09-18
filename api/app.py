@@ -44,7 +44,7 @@ def login():
     user = request.form.get('user')
     password = request.form.get('password')
 
-    with open('users.json') as userstemp:
+    with open('api/users.json') as userstemp:
         users = json.load(userstemp)
         cont=0
         for usuario in users:
@@ -73,11 +73,11 @@ def novo_cadastro():
             "password":password
         }
     ]
-    with open('users.json') as userstemp:
+    with open('api/users.json') as userstemp:
         users = json.load(userstemp)
 
     usuario_novo = usuario + users
-    with open('users.json','w') as gravartemp:
+    with open('api/users.json','w') as gravartemp:
         json.dump(usuario_novo, gravartemp, indent=4)
     enviar_email()
     flash("Usuario cadastrado com sucesso!")
