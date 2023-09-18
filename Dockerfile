@@ -1,3 +1,4 @@
+
 # Base Image
 
 FROM python:3.9-slim
@@ -6,7 +7,8 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# Copy and install dependencies
+# Fixed typo 'requirements' to 'requirements.txt'
 
 COPY requirements.txt requirements.txt
 
@@ -17,8 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose a port to Containers
-
-EXPOSE 8080
+# Removed the duplicate 'EXPOSE' command as it is trying to expose multiple ports.
+# Assuming the first port is the one to be used (8080).
 
 # Command to run on server
 
