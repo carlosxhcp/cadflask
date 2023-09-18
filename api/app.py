@@ -4,8 +4,8 @@ import json
 import smtplib
 import email.message
 
-cad = Flask(__name__)
-cad.config['SECRET_KEY']='C1983RLOS'
+app = Flask(__name__)
+app.config['SECRET_KEY']='C1983RLOS'
 
 # Função de enviar email #
 def enviar_email(): 
@@ -28,7 +28,7 @@ def enviar_email():
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
 logged=False
 
-@cad.route('/')
+@app.route('/')
 def index():
     global logged
     logged = False
@@ -36,7 +36,7 @@ def index():
 
 
 # Rota utilizada para login #
-@cad.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     
     global logged
@@ -56,7 +56,7 @@ def login():
                 return redirect("/")
 
 # Rota utilizada para novo cadastro #
-@cad.route('/novo_cadastro', methods=['POST'])
+@app.route('/novo_cadastro', methods=['POST'])
 def novo_cadastro():
     global user_email
     global user
@@ -86,7 +86,7 @@ def novo_cadastro():
 
 
 # Rota utilizada para ir até a pagina de cadastro #
-@cad.route('/cadastrar')
+@app.route('/cadastrar')
 def cadastrar():
     return render_template('cadastro.html')
 
@@ -104,4 +104,4 @@ def cadastrar():
 
 
 if __name__ in "__main__":
-    cad.run(debug=True)
+    app.run(debug=True)
