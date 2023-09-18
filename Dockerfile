@@ -1,7 +1,7 @@
 
-# Base Image
+ Base Image
 
-FROM python:3.9-slim
+ python:FROM3.9-slim
 
 # Work directory
 
