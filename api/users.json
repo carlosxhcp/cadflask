@@ -3,6 +3,12 @@
         "user": "carlos",
         "user_email": "carlosxhcp@gmail.com",
         "tel": null,
+        "password": "21312"
+    },
+    {
+        "user": "carlos",
+        "user_email": "carlosxhcp@gmail.com",
+        "tel": null,
         "password": "123"
     },
     {
