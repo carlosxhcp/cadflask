@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça o Login</title>
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+
+
+
+<body>
+
+
+
+        <div class="fundo_form">
+            <h2 class="titulo"> Login</h2>
+            <form action="/login" id="login" method="post">
+
+                <input type="text" name="user" id="user" required placeholder="Usuário">
+                
+                <br><br>
+
+                <input type="password" name="password" id="password" required placeholder="Senha">
+
+                <br><br>
+
+                <button type="submit" id="btn_login">ENTRAR</button>
+
+
+
+            </form>
+
+            <p class="novocad"><a href="/cadastrar">CADASTRAR NOVO USUÁRIO</a></p>
+
+
+            <!--   Mensagem de erro se usuario/senha estiverem errados    
+            {% set menssagem = get_flashed_messages() %}
+            {% if menssagem %}
+            <div class="flash_alerta">
+                {{menssagem[0]}}
+            </div>
+            {% endif %}  -->
+
+        </div>
+</html>

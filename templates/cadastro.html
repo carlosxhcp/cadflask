@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Cadastro</title>
+    <link rel="stylesheet" href="../static/cadastro.css">
+
+    <script>
+        const handlePhone = (event) => {
+            let input = event.target
+            input.value = phoneMask(input.value)
+        }
+
+        const phoneMask = (value) => {
+            if (!value) return ""
+            value = value.replace(/\D/g, '')
+            value = value.replace(/(\d{2})(\d)/, "($1) $2")
+            value = value.replace(/(\d)(\d{4})$/, "$1-$2")
+            return value
+        }
+    </script>
+
+
+</head>
+
+
+
+<body>
+
+    <!--   Mensagem de erro se usuario/senha estiverem errados      -->
+    {% set menssagem = get_flashed_messages() %}
+    {% if menssagem %}
+    <div class="flash_alerta">
+        {{menssagem[0]}}
+    </div>
+    {% endif %}
+
+
+
+    <form action="/novo_cadastro" id="login" method="post">
+        <label for="user">Usuário</label>
+        <input type="text" name="user" id="user" required placeholder="Digite seu usuário">
+
+        <br><br>
+
+        <label for="user_email">E-mail</label>
+        <input type="user_email" name="user_email" id="email" required placeholder="Seu e-mail mais utilizado">
+
+        <br><br>
+
+        <label for="tel">Celular</label>
+        <input type="tel" id="tel" maxlength="15" onkeyup="handlePhone(event)" required placeholder="(00)12345-6789">
+
+        <br><br>
+
+        <label for="password" id="password">Senha</label>
+        <input type="password" name="password" id="password" required placeholder="Digite a sua senha">
+
+        <br><br>
+        
+        <button type="submit" id="btn_login">Cadastrar</button>
+
+
+
+    </form>
+</body>
+
+</html>
