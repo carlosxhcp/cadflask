@@ -1,3 +1,4 @@
+
 # Base Image
 
 FROM python:3.9-slim
@@ -6,7 +7,7 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Copy requirements and install dependencies
+ requirements# Copy and install dependencies
 
 COPY requirements.txt requirements.txt
 
