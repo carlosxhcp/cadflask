@@ -14,7 +14,7 @@ def enviar_email():
 
 """
     msg = email.message.Message()
-    msg['Subject'] = (f"Sejá bem vindo, {user}!!!!!")
+    msg['Subject'] = (f"Sejá bem vindo, {user}!!")
     msg['From'] = 'tilfurthernotice22@gmail.com'
     msg['To'] = user_email
     password = 'flfd laei nuzw ayll' 
