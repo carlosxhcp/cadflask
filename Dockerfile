@@ -2,18 +2,17 @@
 FROM python:3.9-slim
 
 # Work directory
-WORKDIR /
+WORKDIR /app
 
 # Copy requirements and install dependencies
-COPY requirements.txt requirements.txt
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
 # Copy other project files
-COPY . .
+COPY . /app/
 
 # Expose a port to Containers 
 EXPOSE 5000
 
 # Command to run on server
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
-
